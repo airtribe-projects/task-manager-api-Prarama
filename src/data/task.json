@@ -1,6 +1,14 @@
 {
   "tasks": [
     {
+      "id": 1,
+      "title": "Set up environment",
+      "description": "Install Node.js, npm, and git",
+      "completed": true,
+      "priority": "high",
+      "createdAt": "2026-06-09T00:55:00.000Z"
+    },
+    {
       "id": 2,
       "title": "Create a new project",
       "description": "Create a new project using Magic and structured MVC folders",
