@@ -1,0 +1,176 @@
+{
+  "info": {
+    "_postman_id": "9679937e-66a0-4487-8e1d-b271d65ff705",
+    "name": "Task Manager API",
+    "description": "Updated collection to test the CRUD operations, filtering, sorting, and priority-level endpoints of the Task Manager API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "4722928"
+  },
+  "item": [
+    {
+      "name": "Get All Tasks",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "tasks"
+          ],
+          "query": [
+            {
+              "key": "completed",
+              "value": "false",
+              "description": "Optional: Filter by true or false",
+              "disabled": true
+            },
+            {
+              "key": "sortBy",
+              "value": "createdAt",
+              "description": "Optional: Sort chronologically",
+              "disabled": true
+            },
+            {
+              "key": "order",
+              "value": "desc",
+              "description": "Optional: Pair with sortBy (asc or desc)",
+              "disabled": true
+            }
+          ]
+        },
+        "description": "Retrieves tasks with optional query params for filtering and sorting."
+      },
+      "response": []
+    },
+    {
+      "name": "Get Tasks By Priority",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/tasks/priority/high",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "tasks",
+            "priority",
+            "high"
+          ]
+        },
+        "description": "Retrieves tasks matching a specific priority level ('low', 'medium', or 'high')."
+      },
+      "response": []
+    },
+    {
+      "name": "Get Task By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/tasks/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "tasks",
+            "2"
+          ]
+        },
+        "description": "Retrieves a specific task matching the given numeric ID."
+      },
+      "response": []
+    },
+    {
+      "name": "Create New Task",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Implement Unit Testing\",\n  \"description\": \"Write tests using Jest or Supertest\",\n  \"completed\": false,\n  \"priority\": \"high\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "tasks"
+          ]
+        },
+        "description": "Creates a new task requiring title, description, completed, and priority elements."
+      },
+      "response": []
+    },
+    {
+      "name": "Update Task By ID",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Create a new project\",\n  \"description\": \"Create a new project using Magic and structured MVC folders\",\n  \"completed\": true,\n  \"priority\": \"medium\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/tasks/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "tasks",
+            "2"
+          ]
+        },
+        "description": "Replaces structural properties for a target ID, supporting priority updates."
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Task By ID",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/tasks/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "tasks",
+            "1"
+          ]
+        },
+        "description": "Removes a specific task permanently from the storage file."
+      },
+      "response": []
+    }
+  ]
+}
